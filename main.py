@@ -128,6 +128,10 @@ def to_jst(datetime_obj):
     jst_zone = pytz.timezone('Asia/Tokyo')
     return datetime_obj.replace(tzinfo=utc_zone).astimezone(jst_zone)
 
+@app.get('/')
+def index():
+    return "<h1>Hello FastAPI World.</h1>" 
+
 
 @app.post('/login')
 async def login(user: User):
